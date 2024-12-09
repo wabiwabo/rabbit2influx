@@ -1,0 +1,4 @@
+pika
+influxdb-client
+python-dotenv
+
