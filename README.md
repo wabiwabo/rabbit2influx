@@ -1,6 +1,3 @@
-Here’s a **README.md** file for your project, explaining the features and functionality of the RabbitMQ-to-InfluxDB integration:
-
----
 
 # **RabbitMQ to InfluxDB Integration**
 
