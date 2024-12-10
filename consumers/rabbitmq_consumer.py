@@ -21,7 +21,7 @@ class RabbitMQConsumer:
             self.config.rabbitmq_username, self.config.rabbitmq_password
         )
         self.connection = pika.BlockingConnection(
-            pika.ConnectionParameters(host=self.config.rabbitmq_host, credentials=credentials)
+            pika.ConnectionParameters(host=self.config.rabbitmq_host, virtual_host=self.config.rabbitmq_vhost, credentials=credentials)
         )
         self.channel = self.connection.channel()
         self.channel.queue_declare(queue=self.config.rabbitmq_queue, durable=True)

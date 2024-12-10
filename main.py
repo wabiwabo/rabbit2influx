@@ -21,8 +21,11 @@ def main():
     influx_writer = InfluxDBWriter(config)
     message_processor = MessageProcessor(influx_writer)
 
+    
     def thread_safe_callback(ch, method, properties, body):
+        logger.info(f"Message received: {body.decode('utf-8')}")
         executor.submit(message_processor.process, body)
+
 
     # Thread pool
     executor = ThreadPoolExecutor(max_workers=config.max_threads)
